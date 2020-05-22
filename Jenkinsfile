@@ -18,7 +18,7 @@ def getLastCommitMessage = {
 def slackNotificationChannel = 'jenkins'     // ex: = "builds"
 
 def notifySlack(text, channel, attachments) {
-    def slackURL = 'https://hooks.slack.com/services/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'
+    def slackURL = 'https://hooks.slack.com/services/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'
     def jenkinsIcon = 'https://wiki.jenkins-ci.org/download/attachments/2916393/logo.png'
 
     def payload = JsonOutput.toJson([text: text,
