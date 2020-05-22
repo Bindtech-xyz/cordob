@@ -21,10 +21,11 @@ RUN apk update \
   && rm /var/cache/apk/* \
   && echo "securerandom.source=file:/dev/urandom" >> /usr/lib/jvm/default-jvm/jre/lib/security/java.security
 
-RUN apk add --no-cache bash
+RUN apk add --no-cache bash git
 
 # INSTALL IONIC AND CORDOVA AND APPCENTER
-RUN npm install -g cordova ionic@${IONIC_VERSION} appcenter-cli npm-cli-login
+#RUN npm install -g cordova ionic@${IONIC_VERSION} appcenter-cli npm-cli-login @ionic/cli
+RUN npm install -g cordova appcenter-cli npm-cli-login @ionic/cli
 
 #INSTALL Graddle
 RUN mkdir -p ${GRADLE_HOME} && \
