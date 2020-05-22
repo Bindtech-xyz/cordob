@@ -18,7 +18,7 @@ def getLastCommitMessage = {
 def slackNotificationChannel = 'jenkins'     // ex: = "builds"
 
 def notifySlack(text, channel, attachments) {
-    def slackURL = 'https://hooks.slack.com/services/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'
+    def slackURL = 'https://hooks.slack.com/services/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'
     def jenkinsIcon = 'https://wiki.jenkins-ci.org/download/attachments/2916393/logo.png'
 
     def payload = JsonOutput.toJson([text: text,
@@ -52,8 +52,8 @@ podTemplate(containers: [
             node(POD_LABEL) {
             def namespace = "devops-tools"
             
-            //stage('Checkout') {
-                
+            stage('Checkout') {
+                checkout()    
             //    def myRepo = checkout([
             //        $class: 'GitSCM', branches: [[name: '*/dev']], 
             //        doGenerateSubmoduleConfigurations: false, 
@@ -67,7 +67,8 @@ podTemplate(containers: [
             //    env.git_Branch = myRepo.GIT_BRANCH
             //    env.short_Commit = "${env.git_Commit[0..7]}"
             //    //env.NODE_PATH = "/nodeModules/node_modules"
-            //}
+            
+            }
             stage('Install git') {
                 container('node') {
                     print "Install git"
