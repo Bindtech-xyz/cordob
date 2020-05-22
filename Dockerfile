@@ -23,8 +23,8 @@ RUN apk update \
 
 RUN apk add --no-cache bash
 
-# INSTALL IONIC AND CORDOVA
-RUN npm install -g cordova ionic@${IONIC_VERSION}
+# INSTALL IONIC AND CORDOVA AND APPCENTER
+RUN npm install -g cordova ionic@${IONIC_VERSION} appcenter-cli
 
 #INSTALL Graddle
 RUN mkdir -p ${GRADLE_HOME} && \
